@@ -1,0 +1,21 @@
+
+.star-rating {
+    height: 50vh;
+    width: 100vh;
+    display: flex;
+    gap: 10px;
+    margin: 100px auto;
+  }
+  
+  .star-rating .active {
+    color: gold;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .star-rating .inactive {
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
