@@ -2,9 +2,8 @@ import { useState } from "react";
 import  "./styles.css";
 
 function RandomColour() {
-
     const [typeOfColour, setTypeOfColour] = useState("hex");
-    const [colour, setColour] = useState("#000000");
+    const [colour, setColour] = useState("#5E540A");
     const [copied, setCopied] = useState(false); 
     const [history, setHistory] = useState([]);
     
@@ -47,34 +46,49 @@ function RandomColour() {
     
 
     return (
-        <div className="randomcolour"
+      <div
+        className="randomcolour"
         style={{
-            width: "100vw" ,
-            height: "100vh",
-            background:colour,
-            margin: "0 auto",
-           }}>
-            <button onClick={()=> setTypeOfColour("hex")} >generate hex colour</button>
-            <button onClick={()=> setTypeOfColour("rgb")} >generate rgb colour</button>
-            <button onClick={typeOfColour === "hex" ? handleHexColour : handleRgbColour} >generate random colour</button>
-            <div className="colourType">
-                <h3>{typeOfColour === "hex" ? "Hex colour" : "rgb colour"}</h3>
-                <h1>{colour}</h1>
-                <button onClick={copyToClipboard}>Copy</button>
-                {copied && <p style={{ color: "#fff" }}>Copied!</p>}
-
-            </div>
-            <div className="history">
-                 <h3>Last 5 Colors</h3>
-                 <div className="history-colors">
-                       {history.map((c, index) => (
-                       <div key={index} className="color-box" style={{ background: c }} title={c}></div>
-                   ))}
-                  </div>
-            </div>
-
+          width: "100%",
+          height: "100vh",
+          background: colour,
+        }}
+      >
+        <div className="buttons">
+          <button onClick={() => setTypeOfColour("hex")}>
+            generate hex colour
+          </button>
+          <button onClick={() => setTypeOfColour("rgb")}>
+            generate rgb colour
+          </button>
+          <button
+            onClick={typeOfColour === "hex" ? handleHexColour : handleRgbColour}
+          >
+            generate random colour
+          </button>
         </div>
-    )
+
+        <div className="colourType">
+          <h3>{typeOfColour === "hex" ? "Hex colour" : "rgb colour"}</h3>
+          <h1>{colour}</h1>
+          <button onClick={copyToClipboard}>Copy</button>
+          {copied && <p style={{ color: "#fff" }}>Copied!</p>}
+        </div>
+        <div className="history">
+          <h3>Last 5 Colors</h3>
+          <div className="history-colors">
+            {history.map((c, index) => (
+              <div
+                key={index}
+                className="color-box"
+                style={{ background: c }}
+                title={c}
+              ></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
     
 }
 export default RandomColour;

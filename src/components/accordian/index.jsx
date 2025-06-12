@@ -27,7 +27,8 @@ import  data  from "./data";
      
 
     return (
-        <div className="wrapper">
+      <div className="wrapper">
+        <h1 className="acco">ACCORDION </h1>
             <button onClick={() => setEnableMultiSelection(!enableMultiSelection)} >
             {enableMultiSelection ? "Switch to Single Selection" : "Enable Multi Selection"}
             </button>

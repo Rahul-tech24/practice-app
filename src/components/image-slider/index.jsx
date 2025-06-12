@@ -49,46 +49,32 @@ function ImageSlider({ url }) {
             }
             
        
-           return (
+  return (
                
-               <div className="imageSlider">
+    <div className="imageSlider">
+      <h1>Image Slider</h1>
                    {images.length > 0 && (
-  <img
-    src={images[CurrentSlide]}
-    alt={`slide-${CurrentSlide}`}
-    width="500"
-    className="slideImage"
-  />
-                   )}
-                   <div className="navigation">
-  <button onClick={() => setCurrentSlide((prev) => (prev === 0 ? images.length - 1 : prev - 1))}>
-    ⬅ Prev
-  </button>
-  <button onClick={() => setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1))}>
-    Next ➡
-  </button>
-</div>
-<div className="dots">
-  {images.map((_, index) => (
-    <span
-      key={index}
-      className={CurrentSlide === index ? "dot active" : "dot"}
-      onClick={() => setCurrentSlide(index)}
-    ></span>
-  ))}
-</div>
-
-
-                   
-                
-                </div>
-           
-         )
-       
-       
-       
-           
+                               <img
+                                 src={images[CurrentSlide]}
+                                  alt={`slide-${CurrentSlide}`}
+                                  width="500"
+                                  className="slideImage"
+                                  />
+                     )}
+    <div className="navigation">
+          <button onClick={() => setCurrentSlide((prev) => (prev === 0 ? images.length - 1 : prev - 1))}>⬅ Prev</button>
+          <button onClick={() => setCurrentSlide((prev) => (prev === images.length - 1 ? 0 : prev + 1))}>Next ➡</button>
+    </div>
+    <div className="dots">
+        {images.map((_, index) => (
+           <span
+             key={index}
+             className={CurrentSlide === index ? "dot active" : "dot"}
+              onClick={() => setCurrentSlide(index)}
+            ></span>
+           ))}
+     </div>
+  </div>)
+                 
 }
-       
-
 export default ImageSlider;
